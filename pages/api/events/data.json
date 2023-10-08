@@ -35,6 +35,30 @@
       "time": "10:00 PM EST",
       "description": "Description goes here...",
       "image": "/images/sample/event3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Event 4",
+      "slug": "event-4-manny-duke",
+      "venue": "Horizon Club",
+      "address": "123 3rd Ave New York, New York (NY), 10022",
+      "performers": "DJ Manny Duke",
+      "date": "June 09, 2023",
+      "time": "10:00 PM EST",
+      "description": "Description goes here...",
+      "image": "/images/sample/event4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Event 5",
+      "slug": "event-5-manny-duke",
+      "venue": "Horizon Club",
+      "address": "123 3rd Ave New York, New York (NY), 10022",
+      "performers": "DJ Manny Duke",
+      "date": "June 09, 2023",
+      "time": "10:00 PM EST",
+      "description": "Description goes here...",
+      "image": "/images/sample/event5.jpg"
     }
   ]
 }
