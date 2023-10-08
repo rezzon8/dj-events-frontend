@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Layout from '@/components/Layout'
 import { API_URL } from '@/config/index'
+import Layout from '@/components/Layout'
 import { DjEvents, DjEvent } from '@/types/dj-events'
 
 export default function HomePage({ events }: DjEvents) {
@@ -10,15 +10,15 @@ export default function HomePage({ events }: DjEvents) {
         <h1>Upcoming Events</h1>
         {events.length === 0 && <h3>No events to show</h3>}
         {events.map((evt: DjEvent) => (
-          <>
-            <h3 key={evt.id}>{evt.name}</h3>
+          <div key={evt.id}>
+            <h3>{evt.name}</h3>
             <Image
               src={evt.image}
               width="240"
               height="180"
               alt={evt.description}
             />
-          </>
+          </div>
         ))}
       </div>
     </Layout>
@@ -30,6 +30,6 @@ export async function getServerSideProps() {
   const events = await res.json()
 
   return {
-    props: { events }
+    props: { events: events.slice(0, 3) }
   }
 }
