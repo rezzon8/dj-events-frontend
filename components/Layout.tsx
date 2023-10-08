@@ -1,8 +1,15 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Showcase from '@/components/Showcase'
 import styles from '@/styles/Layout.module.css'
-import { LAYOUT_TITLE, LAYOUT_DESCRIPTION, LAYOUT_KEYWORDS } from '@/constants'
+import {
+  LAYOUT_TITLE,
+  LAYOUT_DESCRIPTION,
+  LAYOUT_KEYWORDS,
+  URL_PATH_HOME
+} from '@/constants'
 
 export interface LayoutProps {
   title?: string
@@ -17,6 +24,7 @@ export default function Layout({
   keywords = LAYOUT_KEYWORDS,
   children
 }: LayoutProps): JSX.Element {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -26,6 +34,8 @@ export default function Layout({
       </Head>
 
       <Header />
+
+      {router.pathname == URL_PATH_HOME && <Showcase />}
 
       <main className={styles.container}>{children}</main>
 
