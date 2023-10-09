@@ -1,7 +1,15 @@
-import Image from 'next/image'
 import { API_URL } from '@/config/index'
 import Layout from '@/components/Layout'
+import EventItem from '@/components/EventItem'
 import { DjEvents, DjEvent } from '@/types/dj-events'
+
+export async function getServerSideProps() {
+  const res = await fetch(`${API_URL}/api/events`)
+  const events = await res.json()
+  return {
+    props: { events: events.slice(0, 3) }
+  }
+}
 
 export default function HomePage({ events }: DjEvents) {
   return (
@@ -9,27 +17,10 @@ export default function HomePage({ events }: DjEvents) {
       <div>
         <h1>Upcoming Events</h1>
         {events.length === 0 && <h3>No events to show</h3>}
-        {events.map((evt: DjEvent) => (
-          <div key={evt.id}>
-            <h3>{evt.name}</h3>
-            <Image
-              src={evt.image}
-              width="240"
-              height="180"
-              alt={evt.description}
-            />
-          </div>
+        {events.map((evt: DjEvent, index: number) => (
+          <EventItem key={evt.id} evt={evt} index={index} />
         ))}
       </div>
     </Layout>
   )
-}
-
-export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/events`)
-  const events = await res.json()
-
-  return {
-    props: { events: events.slice(0, 3) }
-  }
 }
