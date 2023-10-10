@@ -27,16 +27,17 @@ h1 {
 
 .btn {
   display: inline-block;
-  background: rgb(255, 8, 135);
+  background-color: rgb(255, 8, 135);
   color: #fff;
   padding: 10px 20px;
   cursor: pointer;
   border: 0;
   border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  background-color: rgb(232, 0, 120);
 }
 
 .btn-secondary {
@@ -46,13 +47,14 @@ h1 {
   color: #fff !important;
   border: 0;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 8px 15px;
   margin: 0 20px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-secondary:hover {
-  opacity: 0.8;
+  background-color: rgb(255, 8, 135);
 }
 
 .btn-icon {

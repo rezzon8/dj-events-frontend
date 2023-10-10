@@ -12,7 +12,7 @@ export default function handler(
   const djEvent = djEvents.filter(
     (event: DjEvent) => event.slug === req.query.slug
   )
-
+  /**  Allow GET only */
   if (req.method === 'GET') {
     res.status(200).json(djEvent)
   } else {
